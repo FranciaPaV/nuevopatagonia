@@ -3,6 +3,6 @@ export interface Habitacion{
     foto:string[],
     descripcion:string,
     precioNoche:number,
-    cantidadMaxima:number
+    cantidadmaxima:number
 
 }

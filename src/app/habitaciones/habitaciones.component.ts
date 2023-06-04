@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Habitacion } from '../interfaces/Habitacion';
+import { HabitacionesService } from '../services/habitaciones.service';
 
 @Component({
   selector: 'app-habitaciones',
@@ -10,26 +11,12 @@ import { Habitacion } from '../interfaces/Habitacion';
 
 export class HabitacionesComponent {
 
-  public habitacion1:Habitacion={
-    nombre:"Cabaña rustica comodity",
-    foto:["https://firebasestorage.googleapis.com/v0/b/hotellunesjjg.appspot.com/o/hotel11.webp?alt=media&token=5f650d4f-77a2-4c50-8be9-42415b110159","gs://hotellunesjjg.appspot.com/hotel12.jpg"],
-    descripcion:"Cabaña con 2 camas, cocina y comedor",
-    precioNoche:250,
-    cantidadMaxima:5
-  }
+  public habitaciones:Habitacion[]=[]
 
-  public habitacion2:Habitacion={
-    nombre:"Cabaña del encanto",
-    foto:["https://firebasestorage.googleapis.com/v0/b/hotellunesjjg.appspot.com/o/hotel11.webp?alt=media&token=5f650d4f-77a2-4c50-8be9-42415b110159","gs://hotellunesjjg.appspot.com/hotel12.jpg"],
-    descripcion:"Cabaña con 4 camas, cocina comedor y baños termales",
-    precioNoche:450,
-    cantidadMaxima:7
-  }
+  public constructor(public servicio:HabitacionesService){
+    this.servicio.buscarHabitaciones().subscribe((respuesta)=>{
+      this.habitaciones=respuesta.habitaciones
+    
+  })
 
-  public habitaciones:Habitacion[]=[this.habitacion1,this.habitacion2,this.habitacion1,this.habitacion2,this.habitacion1,this.habitacion2,this.habitacion1,this.habitacion2]
-
-  public constructor(){
-    console.log(this.habitaciones)
-  }
-
-}
+  }}

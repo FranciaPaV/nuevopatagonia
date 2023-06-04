@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+<br><br><br>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2>Registro de Habitacion en el Sistema</h2>
+      <hr />
+      <form [formGroup]="formulario" (ngSubmit)="procesarDatos()">
+        <div class="mb-3 form-check">
+          <label class="form-label">Nombre: </label>
+          <input 
+          type="texto" 
+          class="form-control" 
+          formControlName="nombre" />
+        </div>
+
+        <div class="mb-3 form-check">
+          <label class="form-label">Foto: </label>
+          <input 
+          type="texto" 
+          class="form-control" 
+          formControlName="foto" />
+        </div>
+
+        <div class="mb-3 form-check">
+          <label class="form-label">Descripcion: </label>
+          <input
+            type="texto"
+            class="form-control"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="mb-3 form-check">
+          <label class="form-label">Precio Nochee: </label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="precioNoche"
+          />
+        </div>
+
+        <div class="mb-3 form-check">
+          <label class="form-label">Cantidad px maxima: </label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="cantidadmaxima"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Registar</button>
+      </form>
+    </div>
+      <div class="col-12 col-md-4 align-self-center">
+        <img
+          src="../../assets/img/imperio2.jpg"
+          alt=""
+          class="img-fluid w-100"
+        />
+      </div>
+    </div>
+  </div>
+
