@@ -17,8 +17,9 @@ export class MenuComponent {
     let elemento=document.getElementById("menu")
     if(window.pageYOffset>0){
       this.scrolliando = true
-      this.render.addClass(elemento,'menu2')
       this.render.removeClass(elemento,'menu)')
+      this.render.addClass(elemento,'menu2')
+      
 
     }else{
 

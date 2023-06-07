@@ -1,1 +1,39 @@
-<p>reservas works!</p>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h2>RESERVAS</h2>
+            <hr>
+        </div>
+    </div>
+    <div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id Hab.</th>
+                <th scope="col">Nombre Hab.</th>
+                <th scope="col">Nombre Cliente</th>
+                <th scope="col">Apellido Cliente</th>
+                <th scope="col">Telefono Cliente</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Fin</th>
+                <th scope="col">#Personas</th>
+                <th scope="col">Valor USD</th>
+            </tr>
+            </thead>
+             <tbody>
+                <tr *ngFor= "let reserva of reservas">
+                    <td>{{reserva.idHabitacion}}</td>
+                    <td>{{reserva.nombreHabitacion}}</td>
+                    <td>{{reserva.nombreCliente}}</td>
+                    <td>{{reserva.apellidoCliente}}</td>
+                    <td>{{reserva.telefonoCliente}}</td>
+                    <td>{{reserva.fechaInicioReserva | date:'short'}}</td>
+                    <td>{{reserva.fechaFinalReserva | date:'short'}}</td>
+                    <td>{{reserva.numeroPersonas}}</td>
+                    <td>{{reserva.costo}}</td>
+                </tr>
+              </tbody> 
+        </table>
+    </div>
+</div>

@@ -8,7 +8,7 @@ import { FormularioreservaComponent } from './formularioreserva/formularioreserv
 const routes: Routes = [
   {path:"",component: HomeComponent, pathMatch: "full"},
   {path:"registrohabitacion", component: FormulariohabitacionComponent}, 
-  {path: "registroreservas", component: FormularioreservaComponent}
+  {path: "registroreservas", component: FormularioreservaComponent}, 
 ];
 
 @NgModule({

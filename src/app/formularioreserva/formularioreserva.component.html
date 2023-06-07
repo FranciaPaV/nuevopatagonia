@@ -1,11 +1,11 @@
 <app-menu></app-menu>
-<br><br><br>
+<br><br><br><br>
 <div class="container my-5">
   <div class="row">
     <div class="col-12 col-md-8">
       <h2>Registro de Reserva</h2>
       <hr />
-      <form [formGroup]="formulario" (ngSubmit)="procesarDatos()">
+      <form [formGroup]="formulario" (ngSubmit)="procesarDatos()"> 
         <div class="mb-3 form-check">
           <label class="form-label">Nombre Cliente: </label>
           <input 
@@ -32,21 +32,21 @@
             <input 
             type="date" 
             class="form-control" 
-            formControlName="fechaInicio" />
+            formControlName="fechaInicioReserva" />
           </div>
           <div class="mb-3 form-check">
             <label class="form-label">Fecha Final Reserva: </label>
             <input 
             type="date" 
             class="form-control" 
-            formControlName="fechaFinal" />
+            formControlName="fechaFinalReserva" />
           </div>
           <div class="mb-3 form-check">
             <label class="form-label">Numero de Personas: </label>
             <input
               type="number"
               class="form-control"
-              formControlName="cantidadPersonas"
+              formControlName="numeroPersonas"
             />
           </div>
           <div class="mb-3 form-check">
@@ -68,10 +68,11 @@
           <input
             type="number"
             class="form-control"
-            formControlName="costoReserva"
+            formControlName="costo"
           />
         </div>
-        <button type="submit" class="btn btn-primary w-100">Registar</button>
+        <button [disabled]="formulario.invalid"
+         type="submit" class="btn btn-primary w-100">Registar</button>
       </form>
     </div>
       <div class="col-12 col-md-4 align-self-center">

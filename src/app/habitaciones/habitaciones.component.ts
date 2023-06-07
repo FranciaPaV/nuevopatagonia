@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Habitacion } from '../interfaces/Habitacion';
 import { HabitacionesService } from '../services/habitaciones.service';
 

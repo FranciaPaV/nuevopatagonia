@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ReservasService } from '../services/reservas.service';
 
 @Component({
@@ -9,35 +9,34 @@ import { ReservasService } from '../services/reservas.service';
 })
 export class FormularioreservaComponent {
 
-  public formulario: FormGroup;
-  public datosformulario: any[]=[]
+  public datosformulario: any[] = []
+  public formulario = new FormGroup({
+    nombreCliente: new FormControl('', [Validators.required]),
+    apellidoCliente: new FormControl('', [Validators.required]),
+    telefonoCliente: new FormControl('', [Validators.required]),
+    fechaInicioReserva: new FormControl('', [Validators.required]),
+    fechaFinalReserva: new FormControl('', [Validators.required]),
+    numeroPersonas: new FormControl('', [Validators.required]),
+    nombreHabitacion: new FormControl('', [Validators.required]),
+    idHabitacion: new FormControl('', [Validators.required]),
+    costo: new FormControl(''),
+  });
 
-  public constructor (public constructorFormulario: FormBuilder ,public servicio: ReservasService){
-    this.formulario = this.inicializarFormulario()
-  }
+  
 
-  public inicializarFormulario():FormGroup {
-    return this.constructorFormulario.group ({
-      nombreCliente:[''],
-      apellidoCliente:[''],
-      telefonoCliente:[''],
-      fechaInicioReserva:[''],
-      fechaFinalReserva:[''],
-      numeroPersonas:[''],
-      nombreHabitacion:[''],
-      idHabitacion:[''],
-      costo:['']
-    })
+  public constructor (public constructorFormulario: FormBuilder, public servicio: ReservasService) {
   }
 
   public procesarDatos():void{
-    
-    let datos=this.formulario.value
-    
+    if (this.formulario.invalid) {
+      return;
+    }
+
+    const datos = this.formulario.value;
     this.servicio.registrarReserva(datos)
-    .subscribe((respuesta)=>{
-      console.log(respuesta)
+    .subscribe((respuesta) => {
+      console.log(respuesta);
     })
   }
-}
 
+}

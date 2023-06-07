@@ -30,6 +30,9 @@ import { BookingsComponent } from './bookings/bookings.component';
     FormularioreservaComponent,
     ReservasComponent,
     BookingsComponent
+    
+
+    
   ],
   imports: [
     BrowserModule,
